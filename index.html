@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-app="myApp">
+  <div ng-controller="NoNoController" style="margin:auto;width:80%">
+
+    <div class="divvy">
+      Select any item(s) that you do not wish to be part of the roulette experience.
+    </div>
+<!--
+    <div class="divvy">
+      <h2>Entree Options</h2>
+      <div ng-repeat="noOpt in noOpts">
+        <input type="checkbox" id="{{noOpt}}" ng-value="noOpt" ng-checked="noChoices.indexOf(noOpt) > -1" ng-click="check(noOpt)">
+        <label for="{{noOpt}}">{{noOpt}}</label>
+      </div>
+    </div>
+    -->
+    <div class="divvy">
+      <h2>Entree Options</h2>
+      <div ng-repeat="noOpt in noOpts">
+        <input type="checkbox" id="{{noOpt.meat}}" ng-value="noOpt.meat" ng-checked="noChoices.indexOf(noOpt.meat) > -1" ng-click="check(noOpt.meat)">
+        <label for="{{noOpt2.meat}}">{{noOpt.meat}} </label>
+        <br />
+        <div class="meatDesc">{{noOpt.desc}}</div>
+      </div>
+    </div>
+
+    <div class="divvy">
+     <h2> Delivery Methods</h2>
+      <div ng-repeat="deliveryM in deliveryMs">
+        <input type="checkbox" id="{{deliveryM}}" checklist-value="deliveryM" ng-checked="noChoices.indexOf(deliveryM) > -1" ng-click="check(deliveryM)">
+        <label for="{{deliveryM}}">{{deliveryM}}</label>
+      </div>
+    </div>
+
+    <div class="divvy">
+      <h2>Bean Choices</h2>
+      <div ng-repeat="bean in beans">
+        <input type="checkbox" id="{{bean}}" ng-checked="noChoices.indexOf(bean) > -1" ng-click="check(bean)" checklist-value="bean">
+        <label for="{{bean}}">{{bean}}</label>
+      </div>
+    </div>
+
+    <div class="divvy">
+      <h2>Rice Choices</h2>
+      <div ng-repeat="rice in rices">
+        <input type="checkbox" id="{{rice}}" checklist-value="rice" ng-checked="noChoices.indexOf(rice) > -1" ng-click="check(rice)">
+        <label for="{{rice}}">{{rice}}</label>
+      </div>
+    </div>
+
+    <div class="buttondivvy" >
+      <a class="myButton" ng-click="getOrder()" href="#rouletteTime" ng-show="!orderEnabled">Chino Roulette!</a>
+     <!-- <button class="btn" ng-click="getOrder()" onclick="document.querySelector('#flip-toggle').classList.toggle('flip');" ng-disabled="orderEnabled">Chino Roulette!</button>-->
+    </div>
+<!--
+    <div class="divvy">
+      Meat1: {{meatChoice1}} {{deliveryChoice1}}
+      <br /> Meat2: {{meatChoice2}} {{deliveryChoice2}}
+      <br /> Beans: {{beansChoice}}
+      <br /> Rice: {{riceChoice}}
+    </div>
+-->
+  
+    <div id="rouletteTime" class="modalDialog">
+      <div>	<a href="#close" title="Close" class="close">X</a>
+  
+          	{{meatChoice1}} {{deliveryChoice1}}
+          <br /> {{meatChoice2}} {{deliveryChoice2}}
+          <br /> {{beansChoice}}
+          <br /> {{riceChoice}}
+          <br /> {{easyOrder}}
+      </div>
+    </div>
+<!--
+    <div class="flip-container" id="flip-toggle">
+      <div class="flipper">
+        <div class="front">
+          {{meatChoice1}} {{deliveryChoice1}}
+          <br /> {{meatChoice2}} {{deliveryChoice2}}
+          <br /> {{beansChoice}}
+          <br /> {{riceChoice}}
+        </div>
+        <div class="back">
+          {{meatChoice1}} {{deliveryChoice1}}
+          <br /> {{meatChoice2}} {{deliveryChoice2}}
+          <br /> {{beansChoice}}
+          <br /> {{riceChoice}}
+        </div>
+      </div>
+    </div>
+-->
+
+  <div class="footer">
+    <br />
+    <br />
+  </div>
+
+  </div>
+
+
+
+  <script src="NoNoController.js"></script>
+
+</body>
+
+</html>
